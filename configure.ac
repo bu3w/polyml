@@ -3,7 +3,7 @@
 
 AC_INIT([Poly/ML],[5.9],[polyml AT polyml DOT org],[polyml])
 AM_INIT_AUTOMAKE
-AC_PREREQ(2.69)
+AC_PREREQ([2.71])
 # libtoolize recommends this line.
 AC_CONFIG_MACRO_DIR([m4])
 
@@ -60,7 +60,7 @@ AM_MAINTAINER_MODE
 
 # Check we're in the right directory
 AC_CONFIG_SRCDIR([polyexports.h])
-AC_CONFIG_HEADER([config.h])
+AC_CONFIG_HEADERS([config.h])
 
 
 # Checks for programs.
@@ -100,7 +100,15 @@ fi
 
 AC_FUNC_ALLOCA
 AC_HEADER_DIRENT
-AC_HEADER_STDC
+m4_warn([obsolete],
+[The preprocessor macro `STDC_HEADERS' is obsolete.
+  Except in unusual embedded environments, you can safely include all
+  ISO C90 headers unconditionally.])dnl
+# Autoupdate added the next two lines to ensure that your configure
+# script's behavior did not change.  They are probably safe to remove.
+AC_CHECK_INCLUDES_DEFAULT
+AC_PROG_EGREP
+
 AC_HEADER_SYS_WAIT
 AC_CHECK_HEADERS([stdio.h time.h fcntl.h float.h limits.h locale.h malloc.h netdb.h netinet/in.h stddef.h])
 AC_CHECK_HEADERS([stdlib.h string.h sys/file.h sys/ioctl.h sys/param.h sys/socket.h sys/systeminfo.h])
@@ -285,7 +293,20 @@ AC_TYPE_OFF_T
 AC_TYPE_PID_T
 AC_TYPE_SIZE_T
 AC_TYPE_SSIZE_T
-AC_HEADER_TIME
+m4_warn([obsolete],
+[Update your code to rely only on HAVE_SYS_TIME_H,
+then remove this warning and the obsolete code below it.
+All current systems provide time.h; it need not be checked for.
+Not all systems provide sys/time.h, but those that do, all allow
+you to include it and time.h simultaneously.])dnl
+AC_CHECK_HEADERS_ONCE([sys/time.h])
+# Obsolete code to be removed.
+if test $ac_cv_header_sys_time_h = yes; then
+  AC_DEFINE([TIME_WITH_SYS_TIME],[1],[Define to 1 if you can safely include both <sys/time.h>
+	     and <time.h>.  This macro is obsolete.])
+fi
+# End of obsolete code.
+
 AC_STRUCT_TM
 
 # Check for the various sub-second fields of the stat structure.
@@ -452,6 +473,14 @@ case "${host_cpu}" in
             ;;
       riscv64)
             AC_DEFINE([HOSTARCHITECTURE_RISCV64], [1], [Define if the host is a RISC-V (64-bit)])
+            polyarch=interpret
+            ;;
+      loongarch32)
+            AC_DEFINE([HOSTARCHITECTURE_LOONGARCH32], [1], [Define if the host is a LoongArch (32-bit)])
+            polyarch=interpret
+            ;;
+      loongarch64)
+            AC_DEFINE([HOSTARCHITECTURE_LOONGARCH64], [1], [Define if the host is a LoongArch (64-bit)])
             polyarch=interpret
             ;;
       *) AC_MSG_ERROR([Poly/ML is not supported for this architecture]) ;;

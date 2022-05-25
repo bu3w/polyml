@@ -286,6 +286,15 @@
 # endif
 # define HOST_E_FLAGS (HOST_E_FLAGS_FLOAT_ABI | HOST_E_FLAGS_RVE)
 # define USE_RELA 1
+#elif defined(HOSTARCHITECTURE_LOONGARCH64)
+# define HOST_E_MACHINE EM_LOONGARCH
+# define HOST_DIRECT_DATA_RELOC R_LARCH_64
+# define HOST_DIRECT_FPTR_RELOC R_LARCH_64
+# define HOST_E_FLAGS_FLOAT_ABI EF_LARCH_ABI_LP64D
+# define HOST_E_FLAGS HOST_E_FLAGS_FLOAT_ABI
+# define USE_RELA 1
+#elif defined(HOSTARCHITECTURE_LOONGARCH32)
+# error "Not implemented yet"
 #else
 # error "No support for exporting on this architecture"
 #endif
