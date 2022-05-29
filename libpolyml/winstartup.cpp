@@ -313,8 +313,11 @@ int PolyWinMain(
     DWORD dwInId, dwRes;
 
     SetErrorMode(0); // Force a proper error report
-
+#if (defined(FORCE_CLI))
+    hApplicationInstance = ::GetModuleHandle(nullptr);
+#else
     hApplicationInstance = hInstance;
+#endif
 
     // If we already have standard input and standard output we
     // don't replace them, otherwise we create a window and pipes
@@ -494,7 +497,7 @@ int PolyWinMain(
         memset(&wndClass, 0, sizeof(wndClass));
         wndClass.cbSize = sizeof(wndClass);
         wndClass.lpfnWndProc = DDEWndProc;
-        wndClass.hInstance = hInstance;
+        wndClass.hInstance = hApplicationInstance;
         wndClass.lpszClassName = _T("PolyMLDDEWindowClass");
 
         if ((atClass = RegisterClassEx(&wndClass)) == 0) return 1;
@@ -509,7 +512,7 @@ int PolyWinMain(
             CW_USEDEFAULT,
             NULL,
             NULL,   // handle to menu or child-window identifier
-            hInstance,
+            hApplicationInstance,
             NULL     // pointer to window-creation data
         );
     }

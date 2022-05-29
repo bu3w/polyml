@@ -103,6 +103,9 @@ extern "C" {
 
 extern POLYLIB_API int PolyWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
                     LPSTR lpCmdLine, int nCmdShow, exportDescription *exports);
+#ifdef FORCE_CLI
+extern POLYLIB_API int polymain(int argc, TCHAR* argv[], exportDescription* exports);
+#endif
 #else
 int polymain(int argc, char *argv[], exportDescription *exports);
 #endif

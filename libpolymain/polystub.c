@@ -31,10 +31,19 @@
 #include "../polyexports.h"
 
 #if (defined(_WIN32))
+
+#if (defined(FORCE_CLI))
+int main(int argc, TCHAR* argv[])
+{
+    //return polymain(argc, argv, &poly_exports);
+    return PolyWinMain(INVALID_HANDLE_VALUE, INVALID_HANDLE_VALUE, NULL, SW_SHOW, &poly_exports);
+}
+#else
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
     return PolyWinMain(hInstance, hPrevInstance, lpCmdLine, nCmdShow, &poly_exports);
 }
+#endif
 
 #else
 int main(int argc, char *argv[])
