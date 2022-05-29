@@ -23,25 +23,25 @@
 #undef GETPGRP_VOID
 
 /* Define to 1 if you have `alloca', as a function or macro. */
-#undef HAVE_ALLOCA
 #define HAVE_ALLOCA 1
 
 /* Define to 1 if you have <alloca.h> and it should be used (not on Ultrix).
    */
 #undef HAVE_ALLOCA_H
 
+/* Define to 1 if you have the <arpa/inet.h> header file. */
+#undef HAVE_ARPA_INET_H
+
 /* Define to 1 if you have the <asm/elf.h> header file. */
 #undef HAVE_ASM_ELF_H
 
 /* Define to 1 if you have the <assert.h> header file. */
-#undef HAVE_ASSERT_H
 #define HAVE_ASSERT_H 1
 
 /* Define to 1 if you have the `ctermid' function. */
 #undef HAVE_CTERMID
 
 /* Define to 1 if you have the <ctype.h> header file. */
-#undef HAVE_CTYPE_H
 #define HAVE_CTYPE_H 1
 
 /* Define to 1 if you have the declaration of `fpsetmask', and to 0 if you
@@ -49,7 +49,6 @@
 #undef HAVE_DECL_FPSETMASK
 
 /* Define to 1 if you have the <direct.h> header file. */
-#undef HAVE_DIRECT_H
 #define HAVE_DIRECT_H 1
 
 /* Define to 1 if you have the <dirent.h> header file, and it defines `DIR'.
@@ -72,26 +71,26 @@
 #undef HAVE_ELF_H
 
 /* Define to 1 if you have the <errno.h> header file. */
-#undef HAVE_ERRNO_H
 #define HAVE_ERRNO_H 1
 
 /* Define to 1 if you have the <excpt.h> header file. */
-#undef HAVE_EXCPT_H
 #define HAVE_EXCPT_H 1
 
 /* Define to 1 if you have the <fcntl.h> header file. */
-#undef HAVE_FCNTL_H
 #define HAVE_FCNTL_H 1
 
 /* Define to 1 if you have the <fenv.h> header file. */
-#undef HAVE_FENV_H
 #if (defined(_MSC_VER) && (_MSC_VER >= 1800))
 // Defined in VS 2013
-#define HAVE_FENV_H 1
+# define HAVE_FENV_H 1
+#else
+# undef HAVE_FENV_H
 #endif
 
+/* Define to 1 if you have the <ffi.h> header file. */
+#undef HAVE_FFI_H
+
 /* Define to 1 if you have the <float.h> header file. */
-#undef HAVE_FLOAT_H
 #define HAVE_FLOAT_H 1
 
 /* Define to 1 if you have the <fpu_control.h> header file. */
@@ -109,17 +108,16 @@
 /* Define to 1 if you have the `gmtime_r' function. */
 #undef HAVE_GMTIME_R
 
-/* Define to 1 if you have .note.GNU-stack support in the assembler. */
-#undef HAVE_GNU_STACK
-
 /* Define to 1 if you have the <grp.h> header file. */
 #undef HAVE_GRP_H
+
+/* Define to 1 if you have the <i386/elf_machdep.h> header file. */
+#undef HAVE_I386_ELF_MACHDEP_H
 
 /* Define to 1 if you have the <ieeefp.h> header file. */
 #undef HAVE_IEEEFP_H
 
 /* Define to 1 if the system has the type `IMAGE_FILE_HEADER'. */
-#undef HAVE_IMAGE_FILE_HEADER
 #define HAVE_IMAGE_FILE_HEADER 1
 
 /* Define to 1 if the system has the type `intptr_t'. */
@@ -130,17 +128,12 @@
 // This was present in VS 2013 but not 2015.
 
 /* Define to 1 if you have the <io.h> header file. */
-#undef HAVE_IO_H
 #define HAVE_IO_H 1
 
-/* Define to 1 if you have the `gcc' library (-lgcc). */
-#undef HAVE_LIBGCC
-
-/* Define to 1 if you have the `gcc_s' library (-lgcc_s). */
-#undef HAVE_LIBGCC_S
+/* Define to 1 if you have the `ffi' library (-lffi). */
+#undef HAVE_LIBFFI
 
 /* Define to 1 if you have the `gdi32' library (-lgdi32). */
-#undef HAVE_LIBGDI32
 #define HAVE_LIBGDI32 1
 
 /* Define to 1 if you have libgmp */
@@ -153,7 +146,6 @@
 #undef HAVE_LIBSTDC__
 
 /* Define to 1 if you have the `ws2_32' library (-lws2_32). */
-#undef HAVE_LIBWS2_32
 #define HAVE_LIBWS2_32 1
 
 /* Define to 1 if you have the `X11' library (-lX11). */
@@ -169,32 +161,33 @@
 #undef HAVE_LIBXT
 
 /* Define to 1 if you have the <limits.h> header file. */
-#undef HAVE_LIMITS_H
 #define HAVE_LIMITS_H 1
 
 /* Define to 1 if you have the <locale.h> header file. */
-#undef HAVE_LOCALE_H
 #define HAVE_LOCALE_H 1
 
 /* Define to 1 if you have the `localtime_r' function. */
 #undef HAVE_LOCALTIME_R
 
 /* Define to 1 if the system has the type `long long'. */
-#undef HAVE_LONG_LONG
 #define HAVE_LONG_LONG 1
 
 /* Define to 1 if you have the <machine/reloc.h> header file. */
 #undef HAVE_MACHINE_RELOC_H
 
+/* Define to 1 if you have the <mach-o/arm64/reloc.h> header file. */
+#undef HAVE_MACH_O_ARM64_RELOC_H
+
 /* Define to 1 if you have the <mach-o/reloc.h> header file. */
 #undef HAVE_MACH_O_RELOC_H
 
+/* Define to 1 if you have the <mach-o/x86_64/reloc.h> header file. */
+#undef HAVE_MACH_O_X86_64_RELOC_H
+
 /* Define to 1 if you have the <malloc.h> header file. */
-#undef HAVE_MALLOC_H
 #define HAVE_MALLOC_H 1
 
 /* Define to 1 if you have the <math.h> header file. */
-#undef HAVE_MATH_H
 #define HAVE_MATH_H 1
 
 /* Define to 1 if `gregs' is a member of `mcontext_t'. */
@@ -207,7 +200,6 @@
 #undef HAVE_MCONTEXT_T_REGS
 
 /* Define to 1 if you have the <memory.h> header file. */
-#undef HAVE_MEMORY_H
 #define HAVE_MEMORY_H 1
 
 /* Define to 1 if you have the `mkstemp' function. */
@@ -229,7 +221,6 @@
 #undef HAVE_NETINET_TCP_H
 
 /* Define to 1 if you have the PE/COFF types. */
-#undef HAVE_PECOFF
 #define HAVE_PECOFF 1
 
 /* Define to 1 if you have the <poll.h> header file. */
@@ -237,6 +228,12 @@
 
 /* Define to 1 if you have the <pthread.h> header file. */
 #undef HAVE_PTHREAD_H
+
+/* Define to 1 if you have the `pthread_jit_write_protect_np' function. */
+#undef HAVE_PTHREAD_JIT_WRITE_PROTECT_NP
+
+/* Define to 1 if the system has the type `ptrdiff_t'. */
+#undef HAVE_PTRDIFF_T
 
 /* Define to 1 if you have the <pwd.h> header file. */
 #undef HAVE_PWD_H
@@ -254,7 +251,6 @@
 #undef HAVE_SIGINFO_H
 
 /* Define to 1 if you have the <signal.h> header file. */
-#undef HAVE_SIGNAL_H
 #define HAVE_SIGNAL_H 1
 
 /* Define to 1 if the system has the type `sig_t'. */
@@ -280,30 +276,24 @@
 #undef HAVE_STDBOOL_H
 
 /* Define to 1 if you have the <stddef.h> header file. */
-#undef HAVE_STDDEF_H
 #define HAVE_STDDEF_H 1
 
 /* Define to 1 if you have the <stdint.h> header file. */
-#undef HAVE_STDINT_H
 #define HAVE_STDINT_H 1
 
 /* Define to 1 if you have the <stdio.h> header file. */
-#undef HAVE_STDIO_H
 #define HAVE_STDIO_H 1
 
 /* Define to 1 if you have the <stdlib.h> header file. */
-#undef HAVE_STDLIB_H
 #define HAVE_STDLIB_H 1
 
 /* Define to 1 if you have the <strings.h> header file. */
 #undef HAVE_STRINGS_H
 
 /* Define to 1 if you have the <string.h> header file. */
-#undef HAVE_STRING_H
 #define HAVE_STRING_H
 
 /* Define to 1 if you have the `strtod' function. */
-#undef HAVE_STRTOD
 #define HAVE_STRTOD 1
 
 /* Define to 1 if `ss' is a member of `struct mcontext'. */
@@ -356,7 +346,6 @@
 
 /* Define to 1 if the system has the type
    `SYSTEM_LOGICAL_PROCESSOR_INFORMATION'. */
-#undef HAVE_SYSTEM_LOGICAL_PROCESSOR_INFORMATION
 #define HAVE_SYSTEM_LOGICAL_PROCESSOR_INFORMATION 1
 
 /* Define to 1 if you have the <sys/dir.h> header file, and it defines `DIR'.
@@ -400,9 +389,6 @@
 /* Define to 1 if you have the <sys/select.h> header file. */
 #undef HAVE_SYS_SELECT_H
 
-/* Define to 1 if you have the <sys/signal.h> header file. */
-#undef HAVE_SYS_SIGNAL_H
-
 /* Define to 1 if you have the <sys/socket.h> header file. */
 #undef HAVE_SYS_SOCKET_H
 
@@ -410,7 +396,6 @@
 #undef HAVE_SYS_SOCKIO_H
 
 /* Define to 1 if you have the <sys/stat.h> header file. */
-#undef HAVE_SYS_STAT_H
 #define HAVE_SYS_STAT_H 1
 
 /* Define to 1 if you have the <sys/sysctl.h> header file. */
@@ -419,9 +404,6 @@
 /* Define to 1 if you have the <sys/systeminfo.h> header file. */
 #undef HAVE_SYS_SYSTEMINFO_H
 
-/* Define to 1 if you have the <sys/termios.h> header file. */
-#undef HAVE_SYS_TERMIOS_H
-
 /* Define to 1 if you have the <sys/times.h> header file. */
 #undef HAVE_SYS_TIMES_H
 
@@ -429,7 +411,6 @@
 #undef HAVE_SYS_TIME_H
 
 /* Define to 1 if you have the <sys/types.h> header file. */
-#undef HAVE_SYS_TYPES_H
 #define HAVE_SYS_TYPES_H 1
 
 /* Define to 1 if you have the <sys/uio.h> header file. */
@@ -448,14 +429,12 @@
 #undef HAVE_TCDRAIN
 
 /* Define to 1 if you have the <tchar.h> header file. */
-#undef HAVE_TCHAR_H
 #define HAVE_TCHAR_H 1
 
 /* Define to 1 if you have the <termios.h> header file. */
 #undef HAVE_TERMIOS_H
 
 /* Define to 1 if you have the <time.h> header file. */
-#undef HAVE_TIME_H
 #define HAVE_TIME_H 1
 
 /* Define to 1 if you have the <ucontext.h> header file. */
@@ -474,7 +453,6 @@
 #undef HAVE_VALUES_H
 
 /* Define to 1 if you have the <windows.h> header file. */
-#undef HAVE_WINDOWS_H
 #define HAVE_WINDOWS_H 1
 
 /* Define to 1 if you have the <X11/Xlib.h> header file. */
@@ -544,9 +522,6 @@
 /* Define if the host is an X86 (32-bit ABI, 64-bit processor) */
 /*#undef HOSTARCHITECTURE_X32*/
 
-/* Define if the host is a Sparc (32-bit) */
-/*#undef HOSTARCHITECTURE_SPARC*/
-
 /* Define if the host is an X86 (32-bit) */
 /*#undef HOSTARCHITECTURE_X86*/
 
@@ -584,6 +559,10 @@
 /* Define to the version of this package. */
 #undef PACKAGE_VERSION
 
+/* These are commented out.  They may be defined in the project settings. */
+/* Define if this should use 32-bit values in 64-bit architectures */
+/* #undef POLYML32IN64 */
+
 /* Define to the type of arg 1 for `select'. */
 #undef SELECT_TYPE_ARG1
 
@@ -607,6 +586,10 @@
 // N.B.  This is 4 on both 32-bit and 64-bit
 #define SIZEOF_LONG 4
 
+// Size of long long
+// N.B. This is 8 on both 32-bit and 64-bit
+#define SIZEOF_LONG_LONG 8
+
 /* The size of `void*', as computed by sizeof. */
 #undef SIZEOF_VOIDP
 #ifdef _WIN64
@@ -614,10 +597,6 @@
 #else
 #define SIZEOF_VOIDP 4
 #endif
-
-// Size of long long
-// N.B. This is 8 on both 32-bit and 64-bit
-#define SIZEOF_LONG_LONG 8
 
 /* If using the C implementation of alloca, define if you know the
    direction of stack growth for your system; otherwise it will be
@@ -680,7 +659,6 @@
 #undef const
 
 /* Define to `int' if <sys/types.h> doesn't define. */
-#undef gid_t
 #define gid_t int
 
 /* Define to the type of a signed integer type of width exactly 16 bits if
@@ -700,15 +678,16 @@
 #undef intptr_t
 
 /* Define to `int' if <sys/types.h> does not define. */
-#undef mode_t
 #define mode_t int
 
 /* Define to `long int' if <sys/types.h> does not define. */
 #undef off_t
 
 /* Define to `int' if <sys/types.h> does not define. */
-#undef pid_t
 #define pid_t int
+
+/* Define to `int' if <sys/types.h> does not define. */
+#undef ptrdiff_t
 
 /* Define to `unsigned int' if <sys/types.h> does not define. */
 #undef size_t
@@ -723,7 +702,6 @@ typedef SSIZE_T ssize_t;
 #endif
 
 /* Define to `int' if <sys/types.h> doesn't define. */
-#undef uid_t
 #define uid_t int
 
 /* Define to the type of an unsigned integer type of width exactly 16 bits if
