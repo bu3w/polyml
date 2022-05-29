@@ -140,7 +140,7 @@ extern "C" {
 // On Mac OS X there may be problems accessing environ directly.
 #include <crt_externs.h>
 #define environ (*_NSGetEnviron())
-#else
+#elif !defined(environ)
 extern char **environ;
 #endif
 

@@ -9,6 +9,7 @@
 .deps/
 
 # Visual Studio
+.vs/
 x64/
 Release/
 Debug/
@@ -19,6 +20,7 @@ Debug64/
 *.suo
 *.sdf
 *.opensdf
+.vscode/
 
 # Temporaries
 x86asmtemp.S

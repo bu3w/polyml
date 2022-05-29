@@ -79,7 +79,6 @@ val () = Bootstrap.use "basis/RealArray.sml";
 val () = Bootstrap.use "basis/IEEE_REAL.sml";
 val () = Bootstrap.use "basis/IEEEReal.sml";
 val () = Bootstrap.use "basis/MATH.sml";
-val () = Bootstrap.use "basis/MATH.sml";
 structure LargeReal = struct type real = real end;
 val () = Bootstrap.use "basis/RealSignature.sml";
 val () = Bootstrap.use "basis/Real.sml";
